@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Listing Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="search-container">
+            <input 
+                type="text" 
+                id="doctor-search" 
+                data-testid="autocomplete-input" 
+                placeholder="Search Symptoms, Doctors, Specialists, Clinics"
+            >
+            <button class="search-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <div id="suggestions-dropdown" class="suggestions-dropdown"></div>
+        </div>
+    </header>
+
+    <main class="container">
+        <aside class="filters-panel">
+            <div class="filters-header">
+                <h2>Filters</h2>
+                <button id="clear-all" class="clear-all-btn">Clear All</button>
+            </div>
+
+            <!-- Sort Filter -->
+            <div class="filter-section">
+                <div class="filter-header" data-testid="filter-header-sort">
+                    <h3>Sort by</h3>
+                    <span class="chevron">&#9662;</span>
+                </div>
+                <div class="filter-options sort-options">
+                    <label class="radio-label">
+                        <input type="radio" name="sort" value="fees" data-testid="sort-fees">
+                        <span>Price: Low-High</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="sort" value="experience" data-testid="sort-experience">
+                        <span>Experience: Most Experience first</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Specialties Filter -->
+            <div class="filter-section">
+                <div class="filter-header" data-testid="filter-header-speciality">
+                    <h3>Specialities</h3>
+                    <span class="chevron">&#9662;</span>
+                </div>
+                <div class="filter-options specialty-options">
+                    <!-- These will be populated dynamically via JavaScript -->
+                </div>
+            </div>
+
+            <!-- Mode of Consultation -->
+            <div class="filter-section">
+                <div class="filter-header" data-testid="filter-header-moc">
+                    <h3>Mode of consultation</h3>
+                    <span class="chevron">&#9662;</span>
+                </div>
+                <div class="filter-options">
+                    <label class="radio-label">
+                        <input type="radio" name="consultation" value="video" data-testid="filter-video-consult">
+                        <span>Video Consultation</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="consultation" value="clinic" data-testid="filter-in-clinic">
+                        <span>In Clinic</span>
+                    </label>
+                </div>
+            </div>
+        </aside>
+
+        <section class="doctors-list" id="doctors-list">
+            <!-- Doctor cards will be loaded here -->
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
